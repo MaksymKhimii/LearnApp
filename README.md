@@ -34,7 +34,7 @@ This application is based on microservice architecture.
 - report microservice for trainer workload calculation and generating reports using AWS Lambda 
 ### On premise version
 ![image](https://github.com/MaksymKhimii/LearnApp/assets/94639350/6bcaf1a6-3eda-4786-81f1-c0c9e87fd367)
-### Cloud version
+### Cloud version with AWS infrastructure
 ![image](https://github.com/MaksymKhimii/LearnApp/assets/94639350/00d1d997-3436-428f-a030-4af30cc7231e)
 
 # Technologies
