@@ -6,13 +6,24 @@
 - [Installation and Running](#installation-and-running)
 
 # Description
-## Features
+## General Features
 
 - **Registration**: Join our platform as a trainer or student by creating an account with minimal effort.
 - **Profile**: Personalize your profile, add photos, specify skills, and showcase achievements.
-- **Lessons**: Create and edit lessons, manage schedules, and share information with participants.
 - **Statistics**: Track your progress and achievements using convenient statistical tools.
 - **Communities**: Communicate with other participants, create communities, and share experiences.
+- **Change Password**: Easily update your account password for enhanced security.
+  
+## Student Features
+- **Become a Student**: Register as a student to study and develop your knowledges in a specific area.
+- **Enroll in Studing**: Join interesting lessons conducted by trainers to enhance your knowledge.
+- **Lessons**: Create and edit lessons, manage schedules, and share information with participants.
+- **Participate in Communities**: Engage with other students in communities, sharing insights and experiences.
+
+## Trainer Features
+
+- **Become a Trainer**: Register as a trainer to share your expertise and knowledge.
+- **Conduct Lessons**: Organize and conduct lessons with your students to facilitate learning.
   
 ## Link to Design
 [https://app.visily.ai/projects/2c6d2ce8-3612-4175-9e38-2402ef2e3703/boards/514811](https://app.visily.ai/projects/2c6d2ce8-3612-4175-9e38-2402ef2e3703/boards/514811)<br><br>
