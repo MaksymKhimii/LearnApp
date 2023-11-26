@@ -39,8 +39,3 @@
 2. Install the necessary dependencies.
 3. Run the application.
 
-```bash
-git clone https://github.com/your-project
-cd your-project
-npm install
-npm start
