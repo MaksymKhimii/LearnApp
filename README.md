@@ -36,6 +36,7 @@
 - MongoDB (DynamoDB in cloud version)
 - ActiveMQ (SQS in cloud version)
 - AWS (S3, EC2, VPC, DynamoDB, RDS, SQS, SNS, CloudFront)
+- Docker
 - Jenkins
 ## Frontend technologies:
 - Angular
