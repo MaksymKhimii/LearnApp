@@ -14,7 +14,8 @@
 - **Statistics**: Track your progress and achievements using convenient statistical tools.
 - **Communities**: Communicate with other participants, create communities, and share experiences.
   
-### [Link to Design](https://app.visily.ai/projects/2c6d2ce8-3612-4175-9e38-2402ef2e3703/boards/514811)<br><br>
+## Link to Design
+[https://app.visily.ai/projects/2c6d2ce8-3612-4175-9e38-2402ef2e3703/boards/514811](https://app.visily.ai/projects/2c6d2ce8-3612-4175-9e38-2402ef2e3703/boards/514811)<br><br>
 # Technologies
 ## Backend & Cloud technologies:
 - Java 17
