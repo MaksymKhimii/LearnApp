@@ -1,7 +1,7 @@
 # LearnApp
 ## Content navigation:
 - [Description](#Description)
-- [Link to Design](link-to-design)
+- [Link to Design](#link-to-design)
 - [Technologies](#technologies)
 - [Installation and Running](#installation-and-running)
 
