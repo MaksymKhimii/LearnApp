@@ -1,0 +1,113 @@
+<app-header></app-header>
+<div style="margin-top: 80px">
+  <div style="text-align: center">
+    <h1><b>Trainings</b></h1>
+  </div>
+  <div *ngIf="isStudent()">
+    <div style="margin-left: 10%; margin-bottom: 5%; margin-top: 5%">
+      <app-button width="150px" color="#60CFA5" routerLink="/trainings/add" text="Add training"></app-button>
+    </div>
+    <form [formGroup]="searchFormTrainee" (ngSubmit)="searchTraineeTrainings()">
+      <div class="container" style="max-width: 1488px;">
+        <div class="row">
+          <div class="col-md-6">
+            <div style="margin-left: 16%">
+              <h2>Search Trainings</h2>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="trainer-name"><b>Trainer Name</b></label>
+                    <div class="input-group">
+                      <input type="text"
+                             class="form-control"
+                             style="background-color: #F0F0F0; width: 10px"
+                             id="trainer-name"
+                             formControlName="trainerName"
+                             placeholder="Enter trainer name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="specialization"><b>Specialization</b></label>
+                    <div class="input-group">
+                      <input type="text"
+                             class="form-control"
+                             style="background-color: #F0F0F0; width: 10px"
+                             id="specialization"
+                             formControlName="trainingType"
+                             placeholder="Enter specialization">
+                    </div>
+                  </div>
+                </div>
+                <div style="margin-bottom: 20%; margin-top: 10%">
+                  <app-button type="button" text="Clear" color="grey" width="80px"
+                              (click)="clearAfterSearch()"></app-button>
+                  <app-button type="submit" text="Search" width="100px" style="margin-left: 10%"></app-button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" style="margin-top: 3%;">
+            <app-date-picker></app-date-picker>
+          </div>
+        </div>
+      </div>
+    </form>
+    <app-table [trainings]="loadedTrainings"></app-table>
+  </div>
+</div>
+<div *ngIf="!isStudent()">
+  <form [formGroup]="searchFormTrainee" (ngSubmit)="searchTrainerTrainings()">
+    <div class="container" style="max-width: 1488px;">
+      <div class="row">
+        <div class="col-md-6">
+          <div style="margin-left: 16%">
+            <h2>Search Trainings</h2>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="trainer-name"><b>Trainee Name</b></label>
+                  <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           style="background-color: #F0F0F0; width: 10px"
+                           id="trainer-name"
+                           formControlName="trainerName"
+                           placeholder="Enter trainee name">
+                  </div>
+                </div>
+              </div>
+              <div style="margin-bottom: 20%; margin-top: 10%">
+                <app-button type="button" text="Clear" color="grey" width="80px"
+                            (click)="clearAfterSearch()"></app-button>
+                <app-button type="submit" text="Search" width="80px" style="margin-left: 10%"></app-button>
+                <app-button type="button" text="Get all" color="red"
+                            style="margin-left: 10%"
+                            width="80px" (click)="getAllTrainerTrainings()"></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="margin-top: 3%;">
+          <app-date-picker></app-date-picker>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div *ngIf="isSearch">
+    <app-filtered-trainer-trainings-table [trainings]="loadedTrainerTrainings"></app-filtered-trainer-trainings-table>
+  </div>
+</div>
+<div style="margin-top: 80px">
+  <app-footer></app-footer>
+</div>
+
+<div *ngIf="isTrainingWasAdded">
+  <app-alert message="Training added"></app-alert>
+</div>
+
+
+
+
+
+
+

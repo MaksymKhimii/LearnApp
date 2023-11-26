@@ -1,0 +1,85 @@
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+.date-picker-container {
+  background-color: #fff;
+  border-radius: 8px;
+ /* box-shadow: 0 4px 6px rgba(0,0,0,0.1);*/
+/*  overflow: hidden;*/
+  font-size: 14px;
+  width: 500px;
+}
+
+.date-picker-header {
+  background-color: #fff;
+/*  border-bottom: 1px solid #dee2e6;*/
+  padding: 12px;
+  width: 500px;
+}
+
+.date-picker-header input {
+  cursor: pointer;
+  padding: 8px;
+  border: 1px solid #867CE1;
+  border-radius: 4px;
+  width: 100%;
+/*  box-sizing: border-box;*/
+}
+
+.date-picker-header .row {
+  margin: 0;
+}
+
+.date-picker-header .col {
+  padding: 0 8px;
+}
+
+.datepicker {
+  font-size: 0.875em;
+}
+
+.datepicker .datepicker-days th {
+  width: 40px;
+}
+
+.datepicker .datepicker-days .table-condensed {
+  margin: 0;
+}
+
+.datepicker table {
+  width: 100%;
+}
+
+.datepicker .datepicker-days .table-condensed th,
+.datepicker .datepicker-days .table-condensed td {
+  padding: 8px;
+  border-radius: 0;
+  text-align: center;
+}
+
+.datepicker .datepicker-days .table-condensed thead th {
+  border: none;
+  font-weight: 700;
+}
+
+.datepicker .datepicker-days .table-condensed tbody td {
+  border: none;
+}
+
+.datepicker .datepicker-days .table-condensed tbody td.active,
+.datepicker .datepicker-days .table-condensed tbody td.active:hover,
+.datepicker .datepicker-days .table-condensed tbody td.active:focus {
+  background-color: #6f42c1;
+  color: #fff;
+}
+
+.datepicker .datepicker-days .table-condensed tbody td.today {
+  color: #5bc0de;
+}
+
+.theme-green .bs-datepicker-head {
+  background-color: #6f42c1 !important;
+}
+

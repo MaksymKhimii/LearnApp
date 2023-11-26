@@ -1,0 +1,79 @@
+<body class="bg-light-subtle" style="height: 650px;">
+<div class="container-fluid d-flex align-items-center justify-content-center vh-100">
+  <div class="shadow-lg p-5" style="width: 380px; background-color: #fff;">
+    <form [formGroup]="loginForm" (ngSubmit)="onAuthenticate()" id="login-form" method="post" action="#">
+      <div class="mb-4">
+        <h3 class="mb-2" style="letter-spacing: 1px; text-align: center"><b>Sign In</b></h3>
+        <p style="text-align: center">Welcome back</p>
+      </div>
+      <div class="form-outline mb-4">
+        <label class="control-label mb-1" for="username"
+               [class.label-text-color]="(loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || !isUserValid">
+          <b>Username</b><span class="required-field"></span>
+        </label>
+        <div class="input-group" style="position: relative;">
+          <div class="input-group-addon">
+            <i class="bi bi-person-square"
+               [class.label-text-color]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"
+               style="position: absolute; left: -220px; top: 13px; transform: translateY(-50%);"></i>
+          </div>
+          <input type="text"
+                 name="username"
+                 id="username"
+                 formControlName="username"
+                 placeholder="Enter username"
+                 style="background-color: #F8F8F8; padding-left: 40px;"
+                 class="form-control py-2 rounded-0"
+                 [ngClass]="{'invalid-input': (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || !isUserValid, 'invalid-placeholder': (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || !isUserValid}"
+                 [class.invalid-input]="(loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || !isUserValid">
+        </div>
+      </div>
+      <div class="form-outline mb-4">
+        <label class="control-label mb-1" for="password"
+               [class.label-text-color]="(loginForm.get('password')?.invalid && loginForm.get('password')?.touched) || !isUserValid">
+          <b>Password</b><span class="required-field"></span>
+        </label>
+        <div class="input-group" style="position: relative;">
+          <div class="input-group-addon">
+            <i [class]="lock ? 'bi bi-unlock-fill' : 'bi bi-lock-fill'"
+               style="position: absolute; left: -220px; top: 12px; transform: translateY(-50%);"
+               [class.label-text-color]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            </i>
+          </div>
+          <input [type]="passwordType"
+                 [placeholder]="placeholder"
+                 id="password"
+                 formControlName="password"
+                 class="form-control" [style.background-color]="backgroundColor"
+                 style="background-color: #F8F8F8; padding-left: 40px;"
+                 [ngClass]="{'invalid-input': (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) || !isUserValid, 'invalid-placeholder': (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) || !isUserValid}"
+                 [class.invalid-input]="(loginForm.get('password')?.invalid && loginForm.get('password')?.touched) || !isUserValid "/>
+          <div class="input-group-addon">
+            <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"
+               [class.label-text-color]="(loginForm.get('password')?.invalid && loginForm.get('password')?.touched)"
+               (click)="togglePassword()">
+            </i>
+          </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2">
+        <button type="submit" id="log-in-btn" class="btn btn-primary rounded-1 py-2 mb-3 w100 "
+                [disabled]="loginForm.invalid"
+                style="background-color: #6f42c1">
+          Sign In
+        </button>
+      </div>
+      <p style="text-align: center">or</p>
+      <div class="text-center">
+        <p>Don't have an account? <a routerLink="/join" class="text-decoration-none"
+                                     style="font-weight: 500; color: #6600ff"><b> Sign up</b></a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="!isUserValid">
+  <app-alert color="red" message="Invalid login or password"></app-alert>
+</div>
+</body>
+

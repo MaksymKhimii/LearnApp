@@ -1,0 +1,40 @@
+.input-group {
+  position: relative;
+}
+
+.input-group-addon {
+  margin-left: -30px;
+  cursor: pointer;
+  z-index: 200;
+  position: absolute;
+  font-size: large;
+  color: #6c757d;
+  left: 258px;
+  top: 7px;
+}
+
+.input-group-text {
+  cursor: pointer;
+  font-size: large;
+  color: #6c757d;
+  z-index: 1;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+
+.input-group .form-control {
+  padding-left: 40px;
+}
+
+.invalid-input {
+  border-color: red;
+}
+
+.label-text-color {
+  color: #ff0000;
+}
+
+.invalid-placeholder::placeholder {
+  color: red;
+}

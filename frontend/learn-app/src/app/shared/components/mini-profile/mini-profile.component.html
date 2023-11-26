@@ -1,0 +1,23 @@
+<!--<div [ngClass]="{'dark-theme': themeService.currentTheme === 'dark'}">-->
+<div class="mini-profile" id="miniProfile">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-3">
+        <img src="../../../../assets/pictures/mini-profile-photo.png" class="profile-picture" alt="Profile Picture">
+        <div class="ml-3">
+          <h5 class="card-title mb-0">{{username}}</h5>
+        </div>
+      </div>
+      <div class="mb-2"><i class="bi bi-person-circle" style="margin-left: 5px; margin-right: 7px"></i><a
+        href="/account" class="card-link">My Account</a></div>
+      <div class="custom-control custom-switch mb-2">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="toggleTheme()">
+        <label class="custom-control-label" for="customSwitch1">Night mode</label>
+      </div>
+      <div><i class="bi bi-box-arrow-right" style="margin-left: 6px; margin-right: 6px"></i>
+        <a href="#" class="card-link" (click)="logoutUser()">Sign out</a>
+      </div>
+    </div>
+  </div>
+</div>
+

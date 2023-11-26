@@ -1,0 +1,82 @@
+<div *ngIf="!isFormConfirmed">
+  <div class="container">
+    <div style="margin-left: 190px">
+      <h1 class="mb-3">Registration</h1>
+      <p class="mb-3">Trainer</p>
+    </div>
+    <div class="registration-container">
+      <div class="trainer-image" style="width: 40%">
+        <img src="../../../../assets/pictures/registration-form-trainer.png" class="trainer-image" alt="Trainer">
+      </div>
+      <div class="registration-form" style="width: 40%">
+        <form [formGroup]="trainerForm" (ngSubmit)="submitTrainerRegistration()">
+          <div class="form-group">
+            <label for="firstName"
+                   [class.label-text-color]="trainerForm.get('firstName')?.invalid && trainerForm.get('firstName')?.touched"><b>First
+              name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   [ngClass]="{'invalid-input': trainerForm.get('firstName')?.invalid && trainerForm.get('firstName')?.touched, 'invalid-placeholder': trainerForm.get('firstName')?.invalid && trainerForm.get('firstName')?.touched}"
+                   [class.invalid-input]="trainerForm.get('firstName')?.invalid && trainerForm.get('firstName')?.touched"
+                   formControlName="firstName"
+                   placeholder="Text...">
+          </div>
+          <div class="form-group">
+            <label for="lastName"
+                   [class.label-text-color]="trainerForm.get('lastName')?.invalid && trainerForm.get('lastName')?.touched"><b>Last
+              name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="lastName"
+                   [ngClass]="{'invalid-input': trainerForm.get('lastName')?.invalid && trainerForm.get('lastName')?.touched, 'invalid-placeholder': trainerForm.get('lastName')?.invalid && trainerForm.get('lastName')?.touched}"
+                   [class.invalid-input]="trainerForm.get('lastName')?.invalid && trainerForm.get('lastName')?.touched"
+                   formControlName="lastName"
+                   placeholder="Input text">
+          </div>
+          <div class="form-group">
+            <label for="specialization"
+                   [ngClass]="{'label-text-color': trainerForm.get('specialization')?.invalid && trainerForm.get('specialization')?.touched}">
+              <b>Specialization</b>
+            </label>
+            <select class="form-control" id="specialization"
+                    [ngClass]="{'invalid-input': trainerForm.get('specialization')?.invalid && trainerForm.get('specialization')?.touched}"
+                    formControlName="specialization"
+                    [ngStyle]="{'color': trainerForm.get('specialization')?.value === 'Please select' ? 'gray' : 'black'}"
+            >
+              <option [value]="null" disabled selected>Please select specialization...</option>
+              <option value="crossfit">crossfit</option>
+              <option value="Java">java</option>
+              <option value="Kotlin">Kotlin</option>
+              <option value="C#">C#</option>
+              <option value="Python">Python</option>
+              <option value="TypeScript">TypeScript</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Golang">Golang</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mt-3"
+                  [disabled]="trainerForm.invalid"
+                  style="background-color: #6355D8FF">Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isFormConfirmed">
+  <div style="text-align: center">
+    <h1><b>Registration</b></h1><br>
+    <i style="font-size: 100px; color: #36B584" class="bi bi-check-circle-fill"></i><br>
+    <p style="width: 25%; margin-left: 560px">Congratulations, you have successfully registered with Learn Platform!
+      Here is your credentials that you can change in your account</p>
+    <p><b>User name</b></p>
+    <p>{{username}}</p>
+    <p><b>Password</b></p>
+    <p>{{password}}</p>
+    <a href="/account">
+      <app-button text="My account" width="115px"></app-button>
+    </a>
+  </div>
+</div>

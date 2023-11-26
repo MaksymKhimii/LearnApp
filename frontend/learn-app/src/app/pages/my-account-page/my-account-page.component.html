@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div style="margin-top: 80px; font-size: large">
+  <h1 style="text-align: center"><b>My Account</b></h1>
+  <div class="container" style="max-width: 1488px;">
+    <div class="row">
+      <div class="col-md-6">
+        <app-my-account></app-my-account>
+      </div>
+      <div *ngIf="isStudent()" class="col-md-6" style="margin-top: 50px">
+        <app-trainers-table style="width: 30%"
+                            [trainers]="[
+           {
+           trainerName: 'Elizabeth Lopes',
+           trainingType: 'PHP'
+           },
+           {
+           trainerName: 'Matthew Martinez',
+           trainingType: 'JavaScript',
+           },
+           {
+           trainerName: 'Elizabeth Hall',
+           trainingType: 'Algorithms'
+           },
+           {
+           trainerName: 'Maria White',
+           trainingType: 'Java'
+           }]"
+        ></app-trainers-table>
+        <div style="text-align: right; margin-top: 360px; margin-right: 40px">
+          <app-modal-box>
+          </app-modal-box>
+        </div>
+      </div>
+      <div *ngIf="!isStudent()" class="col-md-6" style="margin-top: 50px">
+        <app-students-table style="width: 30%"
+                            [trainees]="[
+           {
+           traineeName: 'Elizabeth Lopes',
+           status: true
+           },
+           {
+           traineeName: 'Matthew Martinez',
+           status: true
+           },
+           {
+           traineeName: 'Elizabeth Hall',
+           status: false
+           },
+           {
+           traineeName: 'Maria White',
+           status: false
+           }]"
+        ></app-students-table>
+      </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 100px">
+      <h1 style="margin-top: 50px; margin-bottom: 50px"><b>My Trainings</b></h1>
+      <p style="margin-bottom: 50px; margin-left: 290px; width: 60%;">The Training Section is interactive, allowing you
+        to engage with trainers and fellow learners,
+        participate in quizzes, and track your progress. All our courses are flexible and adaptable
+        to your schedule and learning speed.</p>
+      <app-button
+        style="margin-bottom: 50px"
+        text="View trainings"
+        width="140px"
+        routerLink="/trainings">
+      </app-button>
+      <br>
+    </div>
+
+  </div>
+
+</div>
+<app-footer></app-footer>

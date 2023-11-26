@@ -1,0 +1,23 @@
+<div class="container">
+  <h2><b>My trainers</b></h2>
+  <ng-container *ngIf="trainers && trainers.length > 0; else emptyList">
+    <table class="table" style="max-width: 800px">
+      <thead class="table-header">
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">SPECIALIZATION</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-row" *ngFor="let trainer of trainers">
+        <td style="font-weight: bold; margin-top: 5px; margin-bottom: 5px">{{ trainer.trainerName }}</td>
+        <td style="margin-top: 5px; margin-bottom: 5px">{{ trainer.trainingType }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #emptyList>
+    <p>The training list is empty.</p>
+  </ng-template>
+</div>
+

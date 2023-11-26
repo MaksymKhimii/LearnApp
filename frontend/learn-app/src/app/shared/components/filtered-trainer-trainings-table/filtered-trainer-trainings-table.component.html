@@ -1,0 +1,28 @@
+<div class="container">
+  <h2><b>Result</b></h2>
+  <ng-container *ngIf="trainings && trainings.length > 0; else emptyList">
+    <table class="table" style="max-width: 800px">
+      <thead class="table-header">
+      <tr>
+        <th scope="col">DATE</th>
+        <th scope="col">TRAINING NAME</th>
+        <th scope="col">TYPE</th>
+        <th scope="col">TRAINER NAME</th>
+        <th scope="col">DURATION</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-row" *ngFor="let training of trainings">
+        <td>{{ training.trainingDate }}</td>
+        <td style="font-weight: bold;">{{ training.trainingName }}</td>
+        <td style="color: #6355D8">{{ training.trainingType }}</td>
+        <td>{{ training.traineeName }}</td>
+        <td>{{ training.trainingDuration }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #emptyList>
+    <p>The training list is empty.</p>
+  </ng-template>
+</div>

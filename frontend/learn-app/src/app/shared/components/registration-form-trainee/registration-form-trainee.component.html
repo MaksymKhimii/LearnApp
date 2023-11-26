@@ -1,0 +1,85 @@
+<div *ngIf="!isFormConfirmed">
+  <div class="container">
+    <div style="margin-left: 190px">
+      <h1 class="mb-3">Registration</h1>
+      <p class="mb-3" style="margin-left: 5px">Student</p>
+    </div>
+    <div class="registration-container">
+      <div class="trainee-image" style="width: 40%">
+        <img src="../../../../assets/pictures/registration-form-trainee.png" class="trainee-image" alt="Trainer">
+      </div>
+      <div class="registration-form" style="width: 40%">
+        <form [formGroup]="traineeForm" (ngSubmit)="submitTraineeRegistration()">
+          <div class="form-group">
+            <label for="firstName"
+                   [class.label-text-color]="traineeForm.get('firstName')?.invalid && traineeForm.get('firstName')?.touched"><b>First
+              name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   [ngClass]="{'invalid-input': traineeForm.get('firstName')?.invalid && traineeForm.get('firstName')?.touched, 'invalid-placeholder': traineeForm.get('firstName')?.invalid && traineeForm.get('firstName')?.touched}"
+                   [class.invalid-input]="traineeForm.get('firstName')?.invalid && traineeForm.get('firstName')?.touched"
+                   formControlName="firstName"
+                   placeholder="Text...">
+          </div>
+          <div class="form-group">
+            <label for="lastName"
+                   [class.label-text-color]="traineeForm.get('lastName')?.invalid && traineeForm.get('lastName')?.touched"><b>Last
+              name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="lastName"
+                   [ngClass]="{'invalid-input': traineeForm.get('lastName')?.invalid && traineeForm.get('lastName')?.touched, 'invalid-placeholder': traineeForm.get('lastName')?.invalid && traineeForm.get('lastName')?.touched}"
+                   [class.invalid-input]="traineeForm.get('lastName')?.invalid && traineeForm.get('lastName')?.touched"
+                   formControlName="lastName"
+                   placeholder="Input text">
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth"
+                   [class.label-text-color]="traineeForm.get('dateOfBirth')?.invalid && traineeForm.get('dateOfBirth')?.touched"><b>Date
+              of birth (optional)</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="dateOfBirth"
+                   [ngClass]="{'invalid-input': traineeForm.get('dateOfBirth')?.invalid && traineeForm.get('dateOfBirth')?.touched, 'invalid-placeholder': traineeForm.get('dateOfBirth')?.invalid && traineeForm.get('dateOfBirth')?.touched}"
+                   [class.invalid-input]="traineeForm.get('dateOfBirth')?.invalid && traineeForm.get('dateOfBirth')?.touched"
+                   formControlName="dateOfBirth"
+                   placeholder="Input text">
+          </div>
+          <div class="form-group">
+            <label for="address"
+                   [class.label-text-color]="traineeForm.get('address')?.invalid && traineeForm.get('address')?.touched"><b>Address
+              (optional)</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="address"
+                   [ngClass]="{'invalid-input': traineeForm.get('address')?.invalid && traineeForm.get('address')?.touched, 'invalid-placeholder': traineeForm.get('address')?.invalid && traineeForm.get('address')?.touched}"
+                   [class.invalid-input]="traineeForm.get('address')?.invalid && traineeForm.get('address')?.touched"
+                   formControlName="address"
+                   placeholder="Input text">
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mt-3"
+                  [disabled]="traineeForm.invalid"
+                  style="background-color: #6f42c1">Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isFormConfirmed">
+  <div style="text-align: center">
+    <h1><b>Registration</b></h1><br>
+    <i style="font-size: 100px; color: #36B584" class="bi bi-check-circle-fill"></i><br>
+    <p style="width: 25%; margin-left: 560px">Congratulations, you have successfully registered with Learn Platform!
+      Here is your credentials that you can change in your account</p>
+    <p><b>User name</b></p>
+    <p>{{username}}</p>
+    <p><b>Password</b></p>
+    <p>{{password}}</p>
+    <a href="/account">
+      <app-button text="My account" width="115px"></app-button>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="!singleInput" class="date-picker-container" style="background-color: #F8F8F8">
+  <div class="date-picker-header">
+    <div class="row">
+      <div class="col"><b>From</b><input type="text" placeholder="From Date"
+                                         bsDatepicker [(bsValue)]="fromDate"
+                                         [bsConfig]="bsConfig"
+                                         (bsValueChange)="onValueChange($event, true)"
+                                         id="periodFrom"
+                                         style="background-color: #F0F0F0"></div>
+      <div class="col"><b>To</b><input type="text" placeholder="To Date"
+                                       bsDatepicker [(bsValue)]="toDate"
+                                       [minDate]="fromDate"
+                                       [bsConfig]="bsConfig"
+                                       (bsValueChange)="onValueChange($event, false)"
+                                       id="periodTo"
+                                       style="background-color: #F0F0F0"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="singleInput" class="date-picker-container" style="background-color: #F8F8F8">
+  <div class="date-picker-header">
+    <div class="row">
+      <div class="col"><input type="text" placeholder="From Date"
+                              bsDatepicker [(bsValue)]="fromDate"
+                              [bsConfig]="bsConfig"
+                              (bsValueChange)="onValueChange($event, true)"
+                              id="singleDate"
+                              style="background-color: #F0F0F0; width: 60%; margin-left: -4%"></div>
+    </div>
+  </div>
+</div>

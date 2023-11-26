@@ -1,0 +1,94 @@
+<app-header></app-header>
+<div style="margin-top: 80px">
+  <div style="text-align: center">
+    <h1><b>Trainings</b></h1>
+  </div>
+  <form [formGroup]="addTrainingForm" (ngSubmit)="addTraining()">
+    <div class="container" style="max-width: 1488px;">
+      <div class="row">
+        <div class="col-md-6">
+          <div style="margin-left: 16%">
+            <h2>Training</h2>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="trainer-name"><b>Name</b></label>
+                  <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           style="background-color: #F0F0F0; width: 5px;   border: 1px solid #867CE1;"
+                           id="trainer-name"
+                           formControlName="trainingName"
+                           placeholder="Enter trainer name">
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 3%">
+                  <div class="col-md-6">
+                    <label for="specialization"><b>Training start date</b></label>
+                    <div class="input-group">
+                      <app-date-picker [singleInput]="true"></app-date-picker>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 3%">
+                  <div class="col-md-6">
+                    <label for="duration"><b>Duration</b></label>
+                    <div class="input-group">
+                      <input type="text"
+                             class="form-control"
+                             style="background-color: #F0F0F0; width: 10px;   border: 1px solid #867CE1;"
+                             id="duration"
+                             formControlName="duration"
+                             placeholder="Enter duration">
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 3%">
+                  <div class="col-md-6">
+                    <label for="specialization"><b>Type</b></label>
+                    <div class="input-group">
+                      <select id="specialization" class="form-control" style="background-color: #F0F0F0; width: 40%;
+                       border: 1px solid #867CE1;" formControlName="trainingType">
+                        <option [value]="null" disabled selected>Please select specialization...</option>
+                        <option value="crossfit">crossfit</option>
+                        <option value="java">java</option>
+                        <option value="Kotlin">Kotlin</option>
+                        <option value="C#">C#</option>
+                        <option value="Python">Python</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Golang">Golang</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-bottom: 20%; margin-top: 10%; margin-left: 3%">
+                <button type="button" class="btn"
+                        style="height: 44px; border: none;
+                        cursor: pointer; width: 88px; color: #6c757d" routerLink="/trainings">Cancel
+                </button>
+                <app-button type="submit" text="Add" width="100px"
+                            style="margin-left: 10%;   border: 1px solid #867CE1;"></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="margin-top: 3%;">
+          <label for="trainer"><b>Add Trainer</b></label><br>
+          <select id="trainer" class="form-control" formControlName="trainerUsername"
+                  style="background-color: #F0F0F0; width: 40%;  border: 1px solid #867CE1;">
+            <option *ngFor="let trainer of trainers" [value]="trainer.username">{{trainer.username}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div style="margin-top: 80px">
+  <app-footer></app-footer>
+</div>
+<div *ngIf="!isNewTrainingValid">
+  <app-alert message="Training wasn't added" color="red"></app-alert>
+</div>
+

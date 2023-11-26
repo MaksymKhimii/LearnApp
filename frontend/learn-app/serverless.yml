@@ -1,0 +1,19 @@
+service: learn-app-1
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-west-1
+
+functions:
+# Define your Serverless functions if needed
+
+custom:
+  client:
+    bucketName: learn-app-1-client
+    distributionFolder: dist/learn-app
+    indexDocument: index.html
+    errorDocument: index.html
+
+plugins:
+  - serverless-finch

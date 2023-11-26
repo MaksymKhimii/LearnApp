@@ -1,0 +1,9 @@
+<div *ngIf="!hideAlert" class="alert alert-custom alert-dismissible fade show"
+     [style.background-color]="backgroundColor" role="alert">
+  <span *ngIf="leftSymbol==true" class="alert-icon"><i class="bi bi-check-circle"> </i></span>
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+

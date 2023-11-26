@@ -1,0 +1,236 @@
+<div class="container" [class.editing]="isEditing" style="...styles..." (load)="loadUserProfile()">
+  <div *ngIf="!isEditing">
+    <div *ngIf="isStudent()">
+      <div class="container" style=" background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    max-width: 385px">
+        <h2><b>My Profile</b></h2>
+        <div class="profile-card">
+          <div class="profile-container">
+            <img src="../../../../assets/pictures/marta-logo.png" style="max-width: 50%" alt="Profile image">
+            <div class="profile-status">
+              <p><b>Status</b></p>
+              <span *ngIf="active==true" style="color: #60CFA5"><i class="bi bi-check-circle"
+                                                                   style="margin-right: 10px"> </i>Active</span>
+              <span *ngIf="active==false" style="color: red"><i class="bi bi-check-circle"
+                                                                style="margin-right: 10px"> </i>Inactive</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p><strong>First Name</strong><br>{{firstName}}</p>
+        <p><strong>Last Name</strong><br>{{lastName}}</p>
+        <p><strong>Username</strong><br>{{username}}</p>
+        <p><strong>Date of Birth</strong><br>{{dateOfBirth}}</p>
+        <p><strong>Address</strong><br>{{address}}</p>
+        <app-button (click)="toggleEdit()" color="#6355D8" text="Edit Profile" width="170px"
+                    style="margin-right: 5px"></app-button>
+        <app-button color="#60CFA5" routerLink="/change-password" text="Change Password" width="170px"></app-button>
+        <br>
+      </div>
+    </div>
+    <!--    --------------------------------------------------------------------------------------------------------------------->
+    <div *ngIf="!isStudent()">
+      <div class="container" style=" background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    max-width: 385px">
+        <h2><b>My Profile</b></h2>
+        <div class="profile-card">
+          <div class="profile-container">
+            <img src="../../../../assets/pictures/john-logo.png" style="max-width: 50%" alt="Profile image">
+            <div class="profile-status">
+              <p><b>Status</b></p>
+              <span *ngIf="active==true" style="color: #60CFA5"><i class="bi bi-check-circle"
+                                                                   style="margin-right: 10px"> </i>Active</span>
+              <span *ngIf="active==false" style="color: red"><i class="bi bi-check-circle"
+                                                                style="margin-right: 10px"> </i>Inactive</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p><strong>First Name</strong><br>{{firstName}}</p>
+        <p><strong>Last Name</strong><br>{{lastName}}</p>
+        <p><strong>User Name</strong><br>{{username}}</p>
+        <p><strong>Specialization</strong><br>{{specialization}}</p>
+        <app-button (click)="toggleEdit()" color="#6355D8" text="Edit Profile" width="170px"
+                    style="margin-right: 5px"></app-button>
+        <app-button color="#60CFA5" routerLink="/change-password" text="Change Password" width="170px"></app-button>
+        <br>
+      </div>
+    </div>
+    <!--    --------------------------------------------------------------------------------------------------------------------->
+  </div>
+  <div *ngIf="isEditing">
+    <div *ngIf="isStudent()">
+      <div class="container" style=" background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    max-width: 385px">
+        <h2><b>My Profile</b></h2>
+        <div class="profile-card">
+          <div class="profile-container">
+            <img src="../../../../assets/pictures/marta-logo.png" style="max-width: 50%" alt="Profile image">
+            <div class="profile-status">
+              <p><b>Status</b></p>
+              <span *ngIf="active==true" style="color: #60CFA5"><i class="bi bi-check-circle"
+                                                                   style="margin-right: 10px"> </i>Active</span>
+              <span *ngIf="active==false" style="color: red"><i class="bi bi-check-circle"
+                                                                style="margin-right: 10px"> </i>Inactive</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <form [formGroup]="editForm" (ngSubmit)="updateUserProfile()" id="change-trainee-form" method="post" action="#">
+          <div class="form-group">
+            <label for="firstName"><b>First name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   formControlName="firstName"
+                   placeholder="First name..."
+                   value="{{firstName}}">
+          </div>
+          <div class="form-group">
+            <label for="lastName"><b>Last name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="lastName"
+                   formControlName="lastName"
+                   placeholder="Last name..."
+                   value="{{lastName}}">
+          </div>
+          <div class="form-group">
+            <label for="username"><b>User name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="username"
+                   formControlName="username"
+                   placeholder="User name..."
+                   value="{{username}}">
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth"><b>Date of Birth</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="dateOfBirth"
+                   formControlName="dateOfBirth"
+                   placeholder="Date of birth..."
+                   value="{{dateOfBirth}}">
+          </div>
+          <div class="form-group">
+            <label for="address"><b>Address</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="address"
+                   formControlName="address"
+                   placeholder="Address..."
+                   value="{{address}}">
+          </div>
+          <div class="form-group">
+            <div class="form-check form-switch">
+              <label for="active" style="margin-left: -19px"><b>Active</b></label>
+              <input *ngIf="active==true" class="form-check-input" type="checkbox" role="switch" id="active"
+                     checked
+                     style="margin-left: 10px"
+                     value="{{active}}"
+                     formControlName="active">
+              <input *ngIf="active==false" class="form-check-input" type="checkbox" role="switch" id="active"
+                     style="margin-left: 10px"
+                     value="{{active}}"
+                     formControlName="active">
+            </div>
+          </div>
+          <button type="button" (click)="toggleEdit()">Cancel</button>
+          <button type="submit" style="background-color:#6355D8; color: white">Save Changes</button>
+        </form>
+      </div>
+    </div>
+    <!--    ------------------------------------------------------------------------------------------------------------------------>
+    <div *ngIf="!isStudent()">
+      <div class="container" style=" background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    max-width: 385px">
+        <h2><b>My Profile</b></h2>
+        <div class="profile-card">
+          <div class="profile-container">
+            <img src="../../../../assets/pictures/john-logo.png" style="max-width: 50%" alt="Profile image">
+            <div class="profile-status">
+              <p><b>Status</b></p>
+              <span *ngIf="active==true" style="color: #60CFA5"><i class="bi bi-check-circle"
+                                                                   style="margin-right: 10px"> </i>Active</span>
+              <span *ngIf="active==false" style="color: red"><i class="bi bi-check-circle"
+                                                                style="margin-right: 10px"> </i>Inactive</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <form [formGroup]="editForm" (ngSubmit)="updateUserProfile()">
+          <div class="form-group">
+            <label for="firstName"><b>First name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   formControlName="firstName"
+                   placeholder="First name..."
+                   value="{{firstName}}">
+          </div>
+          <div class="form-group">
+            <label for="lastName"><b>Last name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="lastName"
+                   formControlName="lastName"
+                   placeholder="Last name..."
+                   value="{{lastName}}">
+          </div>
+          <div class="form-group">
+            <label for="username"><b>User name</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="username"
+                   formControlName="username"
+                   placeholder="User name..."
+                   value="{{username}}">
+          </div>
+          <div class="form-group">
+            <label for="specialization"><b>Specialization</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="specialization"
+                   formControlName="specialization"
+                   placeholder="Specialization..."
+                   value="{{specialization}}">
+          </div>
+          <div class="form-group">
+            <div class="form-check form-switch">
+              <label for="active" style="margin-left: -19px"><b>Active</b></label>
+              <input *ngIf="active==true" class="form-check-input" type="checkbox" role="switch" id="active"
+                     checked
+                     style="margin-left: 10px"
+                     value="{{active}}"
+                     formControlName="active">
+              <input *ngIf="active==false" class="form-check-input" type="checkbox" role="switch" id="active"
+                     style="margin-left: 10px"
+                     value="{{active}}"
+                     formControlName="active">
+            </div>
+          </div>
+          <button type="button" (click)="toggleEdit()">Cancel</button>
+          <button type="submit" style="background-color: #6355D8; color: white">Save Changes</button>
+        </form>
+      </div>
+    </div>
+    <!--    ------------------------------------------------------------------------------------------------------------------------>
+  </div>
+</div>

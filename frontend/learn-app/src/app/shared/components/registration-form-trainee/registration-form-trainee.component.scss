@@ -1,0 +1,36 @@
+.registration-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.registration-form {
+  width: 30%;
+  height: 80%;
+  margin-top: 0;
+  margin-right: 90px;
+}
+.trainee-image {
+  margin-bottom: 0;
+  width: 60%;
+  overflow: hidden;
+  margin-left: 95px;
+}
+
+.trainee-image img {
+  width: 65%;
+  height: auto;
+  object-fit: cover;
+}
+
+.invalid-input {
+  border-color: red;
+}
+
+.label-text-color {
+  color: #ff0000;
+}
+
+.invalid-placeholder::placeholder {
+  color: red;
+}
