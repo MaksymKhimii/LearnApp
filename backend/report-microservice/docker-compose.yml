@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  myapp:
+    image: report-microservice-image:latest
+    ports:
+      - "8081:8081"
